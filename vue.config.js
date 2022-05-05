@@ -1,4 +1,7 @@
 module.exports = {
+    publicPath: process.env.VUE_ENV_MODE === 'production'
+    ? '/learn-vue3-basic/'
+    : '/',
     devServer: {
         proxy: {
             '^/api': {
