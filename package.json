@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build-production": "vue-cli-service build --mode production",
-    "backend": "json-server --watch db.json"
+    "backend": "json-server --watch db.json",
+    "backend-production": "json-server --watch db.json --routes json-server-routes.json --config json-server.json"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
