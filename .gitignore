@@ -24,4 +24,5 @@ pnpm-debug.log*
 
 # ignore loacl database (json) files changes
 db.json
+json-server.json
 json-server-routes.json
