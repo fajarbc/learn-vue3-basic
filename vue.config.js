@@ -3,7 +3,7 @@ module.exports = {
     ? '/learn-vue3-basic/'
     : '/',
     devServer: process.env.VUE_APP_ENV_MODE === 'production'
-    ? false 
+    ? {} 
     : {
         proxy: {
             '^/api': {
