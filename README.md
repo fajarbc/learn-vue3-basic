@@ -1,5 +1,6 @@
 # vue-crash-2021
-Just an example project for learning Basic of Vue3
+Just an example project for learning Basic of Vue3.
+Demo available here [https://github.fajarbc.com/learn-vue3-basic/](https://github.fajarbc.com/learn-vue3-basic/)
 
 ## Project setup
 1. Install dependency
