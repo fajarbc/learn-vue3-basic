@@ -31,7 +31,7 @@ jobs:
         run: npm install
 
       - name: Generate static files
-        run: npm run generate
+        run: npm run build
 
       - name: Deployment static files
         uses: peaceiris/actions-gh-pages@v2.5.0
