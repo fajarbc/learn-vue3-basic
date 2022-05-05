@@ -30,8 +30,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: 'Edit env file'
+        run: |
+          cat .env.production
+          touch .env.production
+          echo VUE_APP_URL_API="${{ secrets.VUE_APP_URL_API }}" >> .env.production
+          cat .env.production
+
       - name: Generate static files
-        run: npm run build
+        run: npm run build --mode production
 
       - name: Deployment static files
         uses: peaceiris/actions-gh-pages@v2.5.0
