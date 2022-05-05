@@ -1,0 +1,48 @@
+name: gh-pages deploy
+
+on:
+  push:
+    branches:
+      - deployment
+  pull_request:
+    branches:
+      - deployment
+
+jobs:
+  gh-pages:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v3
+
+      - name: Setup node env 🏗
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: 'Edit env file'
+        run: |
+          cat .env.production
+          touch .env.production
+          echo VUE_APP_URL_API="${{ secrets.VUE_APP_URL_API }}" >> .env.production
+          cat .env.production
+
+      - name: Generate static files
+        run: npm run build-production
+
+      - name: Deployment static files
+        uses: peaceiris/actions-gh-pages@v2.5.0
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./dist

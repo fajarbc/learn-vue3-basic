@@ -6,9 +6,17 @@ Just an example project for learning Basic of Vue3
     ```
     npm install
     ```
-2. Copy .env to .env.local
+2. Copy `.env` to `.env.local`
     ```
     cp .env .env.local
+    ```
+3. Copy `db-example.json` to `db.json`
+    ```
+    cp db-example.json db.json
+    ```
+4. (optional) Copy `json-server-routes-example.json` to `json-server-routes.json`. I need this for the backend server
+    ```
+    cp json-server-routes-example.json json-server-routes.json
     ```
 
 ## Run

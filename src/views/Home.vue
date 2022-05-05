@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     async addTask(task) {
-      const res = await fetch("api/tasks", {
+      const res = await fetch(`${process.env.VUE_APP_URL_API}/tasks`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -42,7 +42,7 @@ export default {
     },
     async deleteTask(id) {
       if (confirm(`Are you sure want to delete this task?`)) {
-        const res = await fetch(`api/tasks/${id}`, {
+        const res = await fetch(`${process.env.VUE_APP_URL_API}/tasks/${id}`, {
           method: "DELETE",
         });
         if (res.status === 200) {
@@ -55,7 +55,7 @@ export default {
     async toggleReminder(id) {
       const task = await this.fetchTask(id);
       const taskUpdated = { ...task, reminder: !task.reminder };
-      const res = await fetch(`api/tasks/${id}`, {
+      const res = await fetch(`${process.env.VUE_APP_URL_API}/tasks/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
@@ -69,13 +69,14 @@ export default {
       );
     },
     async fetchTasks() {
-      const res = await fetch("api/tasks");
+      console.log(`${process.env.VUE_APP_URL_API}/tasks`)
+      const res = await fetch(`${process.env.VUE_APP_URL_API}/tasks`);
       const data = await res.json();
 
       return data;
     },
     async fetchTask(id) {
-      const res = await fetch(`api/tasks/${id}`);
+      const res = await fetch(`${process.env.VUE_APP_URL_API}/tasks/${id}`);
       const data = await res.json();
 
       return data;
