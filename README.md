@@ -39,3 +39,4 @@ Demo available here [https://github.fajarbc.com/learn-vue3-basic/](https://githu
 
 ## Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
