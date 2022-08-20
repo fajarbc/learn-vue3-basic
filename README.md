@@ -36,6 +36,10 @@ Demo available here [https://github.fajarbc.com/learn-vue3-basic/](https://githu
     ```
     npm run build
     ```
+3. Backend (Heroku)
+    ```
+    npm start
+    ```
 
 ## Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
